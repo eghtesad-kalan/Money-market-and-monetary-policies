@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فصل چهارم اقتصاد کلان: نظریه پول | ارائه تعاملی</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Vazirmatn Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Vazirmatn', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            900: '#1e1b4b',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .math-ltr {
+            direction: ltr;
+            display: inline-block;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4f46e5;
+        }
+        .card-glass {
+            background: rgba(30, 41, 59, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        html:not(.dark) .card-glass {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(15, 23, 42, 0.1);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+        }
+        input[type=range] {
+            accent-color: #6366f1;
+        }
+        .active-nav {
+            background: linear-gradient(90deg, rgba(99,102,241,0.2) 0%, rgba(99,102,241,0) 100%);
+            border-right: 4px solid #6366f1;
+            color: #818cf8;
+            font-weight: 700;
+        }
+        html:not(.dark) .active-nav {
+            color: #4f46e5;
+            background: linear-gradient(90deg, rgba(79,70,229,0.12) 0%, rgba(79,70,229,0) 100%);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300">
+
+    <!-- Top Header -->
+    <header class="sticky top-0 z-50 card-glass border-b border-slate-200 dark:border-slate-800 px-4 py-3">
+        <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+                <button id="mobileMenuBtn" class="lg:hidden p-2 rounded-lg bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-200">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-emerald-500 flex items-center justify-center text-white font-black text-xl shadow-lg">
+                    M
+                </div>
+                <div>
+                    <h1 class="font-extrabold text-base md:text-lg text-slate-900 dark:text-white">اقتصاد کلان: فصل چهارم (نظریه پول)</h1>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">داشبورد آموزشی و نمودارهای تعاملی بازار پول</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <button onclick="toggleTheme()" class="p-2 rounded-lg bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 transition" title="تغییر تم شب/روز">
+                    <svg id="sunIcon" class="w-5 h-5 text-amber-400 hidden dark:block" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/></svg>
+                    <svg id="moonIcon" class="w-5 h-5 text-slate-700 block dark:hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row min-h-screen relative">
+        
+        <!-- Sidebar Navigation -->
+        <aside id="sidebar" class="fixed lg:sticky top-16 right-0 z-40 w-72 lg:w-64 h-[calc(100vh-4rem)] card-glass lg:bg-transparent border-l border-slate-200 dark:border-slate-800 p-4 overflow-y-auto transform translate-x-full lg:translate-x-0 transition-transform duration-300 shrink-0">
+            <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3 px-2">سرفصل‌های ارائه (۹ بخش)</div>
+            <nav class="space-y-1 text-sm" id="navLinks">
+                <a href="#sec1" onclick="selectSection(0)" class="nav-item block px-3 py-2.5 rounded-lg transition hover:bg-slate-200/50 dark:hover:bg-slate-800/50 active-nav">۱. چرا پول به وجود آمد؟</a>
+                <a href="#sec2" onclick="selectSection(1)" class="nav-item block px-3 py-2.5 rounded-lg transition hover:bg-slate-200/50 dark:hover:bg-slate-800/50">۲. تاریخچه تکامل پول</a>
+                <a href="#sec3" onclick="selectSection(2)" class="nav-item block px-3 py-2.5 rounded-lg transition hover:bg-slate-200/50 dark:hover:bg-slate-800/50">۳. وظایف پول</a>
+                <a href="#sec4" onclick="selectSection(3)" class="nav-item block px-3 py-2.5 rounded-lg transition hover:bg-slate-200/50 dark:hover:bg-slate-800/50">۴. حجم پول، نقدینگی و سرعت گردش</a>
+                <a href="#sec5" onclick="selectSection(4)" class="nav-item block px-3 py-2.5 rounded-lg transition hover:bg-slate-200/50 dark:hover:bg-slate-800/50">۵. تقاضای پول (انگیزه‌های کینز)</a>
+                <a href="#sec6" onclick="selectSection(5)" class="nav-item block px-3 py-2.5 rounded-lg transition hover:bg-slate-200/50 dark:hover:bg-slate-800/50">۶. استخراج نموداری تقاضای پول</a>
+                <a href="#sec7" onclick="selectSection(6)" class="nav-item block px-3 py-2.5 rounded-lg transition hover:bg-slate-200/50 dark:hover:bg-slate-800/50">۷. عرضه پول و ضریب فزاینده</a>
+                <a href="#sec8" onclick="selectSection(7)" class="nav-item block px-3 py-2.5 rounded-lg transition hover:bg-slate-200/50 dark:hover:bg-slate-800/50">۸. تعادل در بازار پول</a>
+                <a href="#sec9" onclick="selectSection(8)" class="nav-item block px-3 py-2.5 rounded-lg transition hover:bg-slate-200/50 dark:hover:bg-slate-800/50">۹. تغییر در تعادل بازار پول</a>
+            </nav>
+
+            <div class="mt-6 p-3 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-xs leading-relaxed text-slate-600 dark:text-slate-300">
+                <strong class="text-indigo-600 dark:text-indigo-400 block mb-1">💡 راهنمای ارائه:</strong>
+                تمام نمودارها زنده و تعاملی هستند. با تغییر دادن اسلایدرها، نقاط تعادل و توضیحات علمی به‌صورت خودکار بروزرسانی می‌شوند.
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="flex-1 p-4 md:p-8 space-y-12 overflow-x-hidden">
+
+            <!-- ==========================================
+                 SECTION 1: WHY MONEY EXISTS
+            =========================================== -->
+            <section id="sec1" class="section-block card-glass rounded-2xl p-6 md:p-8 shadow-xl">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 font-bold text-sm">بخش اول</span>
+                    <h2 class="text-xl md:text-2xl font-extrabold">چرا پول به وجود آمد؟ (اقتصاد تهاتری در برابر اقتصاد پولی)</h2>
+                </div>
+                <p class="text-slate-600 dark:text-slate-300 text-sm md:text-base leading-relaxed mb-6">
+                    در <strong>اقتصاد تهاتری (کالا به کالا - Barter Economy)</strong>، کالاها مستقیماً با یکدیگر مبادله می‌شدند. با گسترش تقسیم کار و تخصصی شدن تولید، مبادله تهاتری با مشکلات جدی روبرو شد که مهم‌ترین آن نیاز به <strong>«همزمانی مضاعف نیازها» (Double Coincidence of Wants)</strong> و تعدد نرخ‌های مبادله نسبی بود.
+                </p>
+
+                <!-- Problems of Barter Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+                    <div class="p-4 rounded-xl bg-rose-500/10 border border-rose-500/20">
+                        <div class="font-bold text-rose-600 dark:text-rose-400 mb-1">۱. عدم همزمانی مضاعف نیازها</div>
+                        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">فروشنده گندم که کفش می‌خواهد باید دقیقاً کفاشی را پیدا کند که در همان لحظه به دنبال گندم باشد.</p>
+                    </div>
+                    <div class="p-4 rounded-xl bg-amber-500/10 border border-amber-500/20">
+                        <div class="font-bold text-amber-600 dark:text-amber-400 mb-1">۲. انفجار تعداد قیمت‌های نسبی</div>
+                        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">در غیاب یک واحد شمارش واحد، ارزش هر کالا باید برحسب تمام کالاهای دیگر سنجیده شود.</p>
+                    </div>
+                    <div class="p-4 rounded-xl bg-purple-500/10 border border-purple-500/20">
+                        <div class="font-bold text-purple-600 dark:text-purple-400 mb-1">۳. غیرقابل تقسیم بودن برخی کالاها</div>
+                        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">کسی که یک راس دام دارد، نمی‌تواند برای خرید یک قرص نان، بخشی از دام زنده را مبادله کند.</p>
+                    </div>
+                    <div class="p-4 rounded-xl bg-cyan-500/10 border border-cyan-500/20">
+                        <div class="font-bold text-cyan-600 dark:text-cyan-400 mb-1">۴. فسادپذیری و هزینه نگهداری</div>
+                        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">ذخیره کردن ثروت به شکل کالاهای کشاورزی یا دامی مستلزم هزینه انبارداری بالا و خطر فساد است.</p>
+                    </div>
+                </div>
+
+                <!-- Interactive Barter vs Monetary Complexity Simulator -->
+                <div class="p-5 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                    <h3 class="font-bold text-base md:text-lg mb-2 flex items-center gap-2">
+                        <span>🧮 شبیه‌ساز پیچیدگی قیمت‌های نسبی در اقتصاد تهاتری در برابر اقتصاد پولی</span>
+                    </h3>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">
+                        اگر در یک اقتصاد <span class="math-ltr">N</span> کالا وجود داشته باشد، در نظام تهاتری به <span class="math-ltr">N(N-1)/2</span> قیمت نسبی نیاز است، اما با ورود پول، تنها <span class="math-ltr">N</span> قیمت پولی کافی است!
+                    </p>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                        <div class=" lg:col-span-5 space-y-4">
+                            <div>
+                                <div class="flex justify-between text-sm font-bold mb-1">
+                                    <span>تعداد کالاها در اقتصاد (<span class="math-ltr">N</span>):</span>
+                                    <span id="barterNVal" class="text-indigo-600 dark:text-indigo-400 font-extrabold text-lg">6 کالا</span>
+                                </div>
+                                <input id="barterNSlider" type="range" min="3" max="12" value="6" class="w-full cursor-pointer" oninput="updateBarterSim()">
+                                <div class="flex justify-between text-xs text-slate-400 mt-1">
+                                    <span>۳ کالا</span>
+                                    <span>۷ کالا</span>
+                                    <span>۱۲ کالا</span>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-3">
+                                <div class="p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-center">
+                                    <div class="text-xs text-slate-500 dark:text-slate-400">نرخ‌های مبادله در تهاتر</div>
+                                    <div class="text-xs text-rose-400 math-ltr my-1">N(N - 1) / 2</div>
+                                    <div id="barterPricesCount" class="text-2xl font-black text-rose-600 dark:text-rose-400">45</div>
+                                    <div class="text-[11px] text-slate-400">نرخ نسبی لازم</div>
+                                </div>
+                                <div class="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-center">
+                                    <div class="text-xs text-slate-500 dark:text-slate-400">قیمت‌ها در اقتصاد پولی</div>
+                                    <div class="text-xs text-emerald-400 math-ltr my-1">N</div>
+                                    <div id="moneyPricesCount" class="text-2xl font-black text-emerald-600 dark:text-emerald-400">10</div>
+                                    <div class="text-[11px] text-slate-400">قیمت پولی لازم</div>
+                                </div>
+                            </div>
+
+                            <div id="barterSavingText" class="text-xs p-3 rounded-lg bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 font-medium">
+                                با استفاده از پول، تعداد قیمت‌های مورد نیاز برای مبادله ۷۷.۸٪ کاهش می‌یابد!
+                            </div>
+                        </div>
+
+                        <!-- Network Graph SVG -->
+                        <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="p-3 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-center">
+                                <div class="text-xs font-bold text-rose-500 mb-2">شبکه مبادله تهاتری (هر کالا با همه کالاها)</div>
+                                <svg id="barterNetworkSvg" viewBox="0 0 220 220" class="w-full h-44 mx-auto"></svg>
+                            </div>
+                            <div class="p-3 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-center">
+                                <div class="text-xs font-bold text-emerald-500 mb-2">شبکه اقتصاد پولی (پول در مرکز مبادلات)</div>
+                                <svg id="moneyNetworkSvg" viewBox="0 0 220 220" class="w-full h-44 mx-auto"></svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==========================================
+                 SECTION 2: EVOLUTION OF MONEY
+            =========================================== -->
+            <section id="sec2" class="section-block card-glass rounded-2xl p-6 md:p-8 shadow-xl">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 font-bold text-sm">بخش دوم</span>
+                    <h2 class="text-xl md:text-2xl font-extrabold">تاریخچه و مراحل تکامل پول</h2>
+                </div>
+                <p class="text-slate-600 dark:text-slate-300 text-sm md:text-base leading-relaxed mb-6">
+                    بشر برای کاهش هزینه‌های مبادله، به مرور زمان شکل پول را از کالاهای فیزیکی دارای ارزش ذاتی به سمت دارایی‌های اعتباری و دیجیتال تغییر داد. روی هر مرحله کلیک کنید تا ویژگی‌های علمی آن را ببینید:
+                </p>
+
+                <!-- Timeline Steps -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 mb-6" id="evolutionTabs">
+                    <button onclick="selectEvolution(0)" class="evo-btn p-3 rounded-xl border text-right transition bg-indigo-600 text-white border-indigo-500 shadow">
+                        <div class="text-lg">🌾</div>
+                        <div class="font-bold text-xs mt-1">۱. پول کالایی</div>
+                    </button>
+                    <button onclick="selectEvolution(1)" class="evo-btn p-3 rounded-xl border border-slate-300 dark:border-slate-700 text-right transition hover:border-indigo-500">
+                        <div class="text-lg">🪙</div>
+                        <div class="font-bold text-xs mt-1">۲. پول فلزی و مسکوک</div>
+                    </button>
+                    <button onclick="selectEvolution(2)" class="evo-btn p-3 rounded-xl border border-slate-300 dark:border-slate-700 text-right transition hover:border-indigo-500">
+                        <div class="text-lg">📜</div>
+                        <div class="font-bold text-xs mt-1">۳. پول کاغذی با پشتوانه</div>
+                    </button>
+                    <button onclick="selectEvolution(3)" class="evo-btn p-3 rounded-xl border border-slate-300 dark:border-slate-700 text-right transition hover:border-indigo-500">
+                        <div class="text-lg">💵</div>
+                        <div class="font-bold text-xs mt-1">۴. پول اعتباری (فیات)</div>
+                    </button>
+                    <button onclick="selectEvolution(4)" class="evo-btn p-3 rounded-xl border border-slate-300 dark:border-slate-700 text-right transition hover:border-indigo-500">
+                        <div class="text-lg">🏦</div>
+                        <div class="font-bold text-xs mt-1">۵. پول بانکی (ثبتی)</div>
+                    </button>
+                    <button onclick="selectEvolution(5)" class="evo-btn p-3 rounded-xl border border-slate-300 dark:border-slate-700 text-right transition hover:border-indigo-500">
+                        <div class="text-lg">💳</div>
+                        <div class="font-bold text-xs mt-1">۶. پول الکترونیک و دیجیتال</div>
+                    </button>
+                </div>
+
+                <!-- Evolution Detail Box -->
+                <div id="evolutionDetail" class="p-6 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+                    <!-- Populated via JS -->
+                </div>
+            </section>
+
+            <!-- ==========================================
+                 SECTION 3: FUNCTIONS OF MONEY
+            =========================================== -->
+            <section id="sec3" class="section-block card-glass rounded-2xl p-6 md:p-8 shadow-xl">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 font-bold text-sm">بخش سوم</span>
+                    <h2 class="text-xl md:text-2xl font-extrabold">وظایف چهارگانه پول در اقتصاد</h2>
+                </div>
+                <p class="text-slate-600 dark:text-slate-300 text-sm md:text-base leading-relaxed mb-6">
+                    در علم اقتصاد، پول را نه با جنس فیزیکی آن، بلکه با <strong>وظایفش</strong> تعریف می‌کنند: «هر چیزی که مقبولیت عام داشته باشد و چهار وظیفه زیر را انجام دهد، پول است.»
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-6">
+                    <div class="p-5 rounded-xl bg-slate-100 dark:bg-slate-900 border-r-4 border-indigo-500">
+                        <h3 class="font-bold text-base text-indigo-600 dark:text-indigo-400 mb-2">۱. واسطه مبادله (Medium of Exchange)</h3>
+                        <p class="text-xs md:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                            اصلی‌ترین وظیفه پول که فرآیند خرید را از فروش جدا می‌کند و نیاز به «همزمانی مضاعف نیازها» را از بین می‌برد. به این ترتیب زمان و هزینه جستجوی طرف مبادله (Transaction Cost) به شدت کاهش می‌یابد.
+                        </p>
+                    </div>
+                    <div class="p-5 rounded-xl bg-slate-100 dark:bg-slate-900 border-r-4 border-emerald-500">
+                        <h3 class="font-bold text-base text-emerald-600 dark:text-emerald-400 mb-2">۲. واحد شمارش و سنجش ارزش (Unit of Account)</h3>
+                        <p class="text-xs md:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                            همان‌طور که طول را با متر و وزن را با کیلوگرم می‌سنجیم، ارزش اقتصادی کالاها و خدمات را با واحد پول (ریال، دلار و...) می‌سنجیم. این وظیفه امکان حسابداری، مقایسه قیمت‌ها و محاسبه تولید ناخالص داخلی (GDP) را فراهم می‌کند.
+                        </p>
+                    </div>
+                    <div class="p-5 rounded-xl bg-slate-100 dark:bg-slate-900 border-r-4 border-amber-500">
+                        <h3 class="font-bold text-base text-amber-600 dark:text-amber-400 mb-2">۳. ذخیره ارزش (Store of Value)</h3>
+                        <p class="text-xs md:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                            پول پل ارتباطی زمان حال و آینده است؛ فرد می‌تواند درآمد امروز خود را به شکل پول نگه دارد تا در آینده خرج کند. پول دارای <strong>بیشترین درجه نقدشوندگی (Liquidity)</strong> است، اما در شرایط تورمی این وظیفه تضعیف می‌شود.
+                        </p>
+                    </div>
+                    <div class="p-5 rounded-xl bg-slate-100 dark:bg-slate-900 border-r-4 border-purple-500">
+                        <h3 class="font-bold text-base text-purple-600 dark:text-purple-400 mb-2">۴. معیار پرداخت‌های آتی (Standard of Deferred Payment)</h3>
+                        <p class="text-xs md:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                            قراردادهای بلندمدت، وام‌ها، بدهی‌ها و چک‌های مدت‌دار بر اساس واحد پول تنظیم می‌شوند. نوسان شدید سطح عمومی قیمت‌ها (تورم‌های پیش‌بینی نشده) به این کارکرد آسیب می‌زند و به نفع بدهکاران و به زیان بستانکاران تمام می‌شود.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Interactive Store of Value & Inflation Erosion Simulator -->
+                <div class="p-5 rounded-2xl bg-amber-500/5 border border-amber-500/20">
+                    <h4 class="font-bold text-sm md:text-base text-amber-600 dark:text-amber-400 mb-2">
+                        📉 آزمایشگاه تعاملی: تأثیر تورم بر وظیفه «ذخیره ارزش» و قدرت خرید پول
+                    </h4>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">
+                        ارزش واقعی پول برابر است با <span class="math-ltr">1 / P</span> (معکوس سطح عمومی قیمت‌ها). ببینید نگهداری ۱۰۰ میلیون تومان پول نقد در طی ۵ سال با نرخ‌های مختلف تورم سالانه چه بلایی سر قدرت خرید واقعی می‌آورد:
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                        <div class="md:col-span-5 space-y-3">
+                            <div class="flex justify-between text-sm font-bold">
+                                <span>نرخ تورم سالانه (<span class="math-ltr">π</span>):</span>
+                                <span id="infRateVal" class="text-amber-500 font-extrabold">35%</span>
+                            </div>
+                            <input id="infRateSlider" type="range" min="0" max="80" value="35" class="w-full" oninput="updateInflationSim()">
+                            <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs space-y-1.5">
+                                <div class="flex justify-between">
+                                    <span>موجودی اسمی پس از ۵ سال:</span>
+                                    <span class="font-bold">۱۰۰ میلیون تومان</span>
+                                </div>
+                                <div class="flex justify-between text-rose-500">
+                                    <span>قدرت خرید واقعی پس از ۵ سال:</span>
+                                    <span id="realPurchasingPower" class="font-extrabold text-sm">22.3 میلیون تومان</span>
+                                </div>
+                                <div class="text-[11px] text-slate-400 pt-1 border-t border-slate-200 dark:border-slate-800">
+                                    نتیجه علمی: در تورم‌های بالا، مردم از نگهداری پول نقد فرار کرده و به دارایی‌های فیزیکی (طلا، مسکن، ارز) پناه می‌برند (پدیده جانشینی پول).
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md:col-span-7">
+                            <div class="grid grid-cols-6 gap-2 items-end h-36 pt-6 px-3 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800" id="infBarsContainer">
+                                <!-- Generated by JS -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==========================================
+                 SECTION 4: MONEY AGGREGATES & VELOCITY
+            =========================================== -->
+            <section id="sec4" class="section-block card-glass rounded-2xl p-6 md:p-8 shadow-xl">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 font-bold text-sm">بخش چهارم</span>
+                    <h2 class="text-xl md:text-2xl font-extrabold">حجم پول در گردش، نقدینگی و سرعت گردش پول</h2>
+                </div>
+
+                <!-- Monetary Aggregates Hierarchy -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                    <div class="p-5 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                        <h3 class="font-bold text-base mb-3 text-indigo-600 dark:text-indigo-400">📊 طبقه‌بندی کل‌های پولی (Monetary Aggregates)</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">
+                            کل‌های پولی بر اساس <strong>درجه نقدشوندگی (Liquidity)</strong> از بالا به پایین مرتب می‌شوند:
+                        </p>
+                        <div class="space-y-3">
+                            <div class="p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30">
+                                <div class="flex justify-between items-center font-bold text-sm text-emerald-600 dark:text-emerald-400">
+                                    <span>۱. حجم پول در گردش (<span class="math-ltr">M1</span>) - تعریف محدود پول</span>
+                                    <span class="text-xs px-2 py-0.5 rounded bg-emerald-500/20">نقدشوندگی ۱۰۰٪</span>
+                                </div>
+                                <div class="text-xs mt-1.5 font-semibold math-ltr text-left">M1 = C + DD</div>
+                                <p class="text-xs text-slate-600 dark:text-slate-300 mt-1">
+                                    شامل <strong>اسکناس و مسکوک در دست اشخاص (<span class="math-ltr">C</span>)</strong> + <strong>سپرده‌های دیداری / جاری بخش غیردولتی (<span class="math-ltr">DD</span>)</strong> که با چک یا کارت بانکی فوراً قابل خرج کردن هستند.
+                                </p>
+                            </div>
+
+                            <div class="p-3.5 rounded-xl bg-indigo-500/10 border border-indigo-500/30">
+                                <div class="flex justify-between items-center font-bold text-sm text-indigo-600 dark:text-indigo-400">
+                                    <span>۲. نقدینگی (<span class="math-ltr">M2</span>) - تعریف گسترده پول</span>
+                                    <span class="text-xs px-2 py-0.5 rounded bg-indigo-500/20">پول + شبه‌پول</span>
+                                </div>
+                                <div class="text-xs mt-1.5 font-semibold math-ltr text-left">M2 = M1 + TD (Quasi-Money)</div>
+                                <p class="text-xs text-slate-600 dark:text-slate-300 mt-1">
+                                    شامل <strong>حجم پول (<span class="math-ltr">M1</span>)</strong> + <strong>شبه‌پول یا سپرده‌های غیردیداری (<span class="math-ltr">TD</span>)</strong> (سپرده‌های پس‌انداز کوتاه‌مدت و سرمایه‌گذاری بلندمدت).
+                                </p>
+                            </div>
+
+                            <div class="p-3.5 rounded-xl bg-purple-500/10 border border-purple-500/30">
+                                <div class="flex justify-between items-center font-bold text-sm text-purple-600 dark:text-purple-400">
+                                    <span>۳. تعریف وسیع‌تر (<span class="math-ltr">M3</span>)</span>
+                                    <span class="text-xs px-2 py-0.5 rounded bg-purple-500/20">نقدشوندگی کمتر</span>
+                                </div>
+                                <p class="text-xs text-slate-600 dark:text-slate-300 mt-1">
+                                    شامل <span class="math-ltr">M2</span> به علاوه گواهی‌های سپرده خاص، اوراق مشارکت و دارایی‌های مالی با نقدشوندگی پایین‌تر.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fisher Quantity Equation Interactive Simulator -->
+                    <div class="p-5 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-bold text-base mb-2 text-amber-600 dark:text-amber-400">⚡ سرعت گردش پول و معادله مقداری ایروینگ فیشر</h3>
+                            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-3">
+                                <strong>سرعت گردش پول (<span class="math-ltr">V</span> - Velocity of Money):</strong> میانگین دفعاتی که یک واحد پول در طول یک سال برای خرید کالاها و خدمات نهایی دست به دست می‌شود:
+                            </p>
+                            <div class="p-3 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-center mb-4">
+                                <div class="text-base md:text-lg font-black text-indigo-600 dark:text-indigo-400 math-ltr">M × V = P × Y &nbsp;&nbsp;⇒&nbsp;&nbsp; V = (P × Y) / M</div>
+                                <div class="text-[11px] text-slate-400 mt-1">
+                                    <span class="math-ltr">M</span>: حجم پول | <span class="math-ltr">V</span>: سرعت گردش درآمدی پول | <span class="math-ltr">P</span>: سطح عمومی قیمت‌ها | <span class="math-ltr">Y</span>: تولید واقعی (<span class="math-ltr">P×Y = GDP اسمی</span>)
+                                </div>
+                            </div>
+
+                            <!-- Sliders for M, V, Y -->
+                            <div class="space-y-3 text-xs">
+                                <div>
+                                    <div class="flex justify-between font-bold mb-1">
+                                        <span>حجم پول در گردش (<span class="math-ltr">M</span>):</span>
+                                        <span id="fisherMVal" class="text-indigo-500">500 واحد</span>
+                                    </div>
+                                    <input id="fisherMSlider" type="range" min="100" max="2000" step="50" value="500" class="w-full" oninput="updateFisherSim()">
+                                </div>
+                                <div>
+                                    <div class="flex justify-between font-bold mb-1">
+                                        <span>سرعت گردش پول (<span class="math-ltr">V</span>):</span>
+                                        <span id="fisherVVal" class="text-amber-500">4 بار در سال</span>
+                                    </div>
+                                    <input id="fisherVSlider" type="range" min="1" max="10" step="0.5" value="4" class="w-full" oninput="updateFisherSim()">
+                                </div>
+                                <div>
+                                    <div class="flex justify-between font-bold mb-1">
+                                        <span>تولید واقعی کل (<span class="math-ltr">Y</span>):</span>
+                                        <span id="fisherYVal" class="text-emerald-500">1000 واحد</span>
+                                    </div>
+                                    <input id="fisherYSlider" type="range" min="500" max="2000" step="50" value="1000" class="w-full" oninput="updateFisherSim()">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 p-3.5 rounded-xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-between">
+                            <div>
+                                <div class="text-xs text-slate-500 dark:text-slate-300">تولید ناخالص داخلی اسمی (<span class="math-ltr">P × Y</span>): <strong id="fisherNominalGDP">2000</strong></div>
+                                <div class="text-xs text-slate-500 dark:text-slate-300 mt-1">سطح عمومی قیمت‌های تعادلی (<span class="math-ltr">P = MV/Y</span>):</div>
+                            </div>
+                            <div id="fisherPResult" class="text-2xl font-black text-indigo-600 dark:text-indigo-400 math-ltr">P = 2.00</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==========================================
+                 SECTION 5: KEYNESIAN MONEY DEMAND MOTIVES
+            =========================================== -->
+            <section id="sec5" class="section-block card-glass rounded-2xl p-6 md:p-8 shadow-xl">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 font-bold text-sm">بخش پنجم</span>
+                    <h2 class="text-xl md:text-2xl font-extrabold">تقاضای پول (نظریه رجحان نقدینگی کینز)</h2>
+                </div>
+                <p class="text-slate-600 dark:text-slate-300 text-sm md:text-base leading-relaxed mb-6">
+                    منظور از تقاضای پول، مقدار دارایی است که مردم تمایل دارند به صورت <strong>موجودی نقدی واقعی (<span class="math-ltr">(M/P)<sup>d</sup></span>)</strong> (اسکناس و حساب جاری که بهره‌ای ندارد) نگهداری کنند. جان مینارد کینز در نظریه <strong>رجحان نقدینگی (Liquidity Preference Theory)</strong> سه انگیزه اصلی برای تقاضای پول مطرح کرد:
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-6">
+                    <!-- Motive 1 -->
+                    <div class="p-5 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col justify-between">
+                        <div>
+                            <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-500 flex items-center justify-center font-bold text-lg mb-3">🛒</div>
+                            <h3 class="font-bold text-base mb-1">۱. تقاضای معاملاتی پول (<span class="math-ltr">L<sub>t</sub></span>)</h3>
+                            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                                به دلیل <strong>عدم همزمانی دریافت درآمد و انجام هزینه‌ها</strong> (مثلاً دریافت حقوق در اول ماه و خرج کردن آن در طول ماه)، افراد و بنگاه‌ها برای انجام معاملات روزمره خود پول نقد نگه می‌دارند.
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-800 flex justify-between items-center text-xs">
+                            <span class="text-slate-400">رابطه با درآمد ملی (<span class="math-ltr">Y</span>):</span>
+                            <span class="px-2.5 py-1 rounded bg-emerald-500/20 text-emerald-500 font-bold math-ltr">L<sub>t</sub> = f(Y) &nbsp; (+)</span>
+                        </div>
+                    </div>
+
+                    <!-- Motive 2 -->
+                    <div class="p-5 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col justify-between">
+                        <div>
+                            <div class="w-10 h-10 rounded-xl bg-cyan-500/20 text-cyan-500 flex items-center justify-center font-bold text-lg mb-3">🛡️</div>
+                            <h3 class="font-bold text-base mb-1">۲. تقاضای احتیاطی پول (<span class="math-ltr">L<sub>p</sub></span>)</h3>
+                            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                                نگهداری پول برای مقابله با <strong>حوادث غیرمترقبه و نااطمینانی‌های آینده</strong> (بیماری، تصادف، خرابی تجهیزات یا فرصت‌های خرید ناگهانی). هرچه سطح درآمد و زندگی بالاتر باشد، پول احتیاطی بیشتری نیز نگهداری می‌شود.
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-800 flex justify-between items-center text-xs">
+                            <span class="text-slate-400">رابطه با درآمد ملی (<span class="math-ltr">Y</span>):</span>
+                            <span class="px-2.5 py-1 rounded bg-cyan-500/20 text-cyan-500 font-bold math-ltr">L<sub>p</sub> = f(Y) &nbsp; (+)</span>
+                        </div>
+                    </div>
+
+                    <!-- Motive 3 -->
+                    <div class="p-5 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col justify-between">
+                        <div>
+                            <div class="w-10 h-10 rounded-xl bg-rose-500/20 text-rose-500 flex items-center justify-center font-bold text-lg mb-3">📈</div>
+                            <h3 class="font-bold text-base mb-1">۳. تقاضای سفته‌بازی / دارایی (<span class="math-ltr">L<sub>s</sub></span>)</h3>
+                            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                                نوآوری بزرگ کینز! افراد ثروت خود را بین <strong>پول نقد (بدون سود)</strong> و <strong>اوراق قرضه (دارای بهره <span class="math-ltr">r</span>)</strong> تقسیم می‌کنند. نرخ بهره، <strong>هزینه فرصت نگهداری پول</strong> است.
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-800 flex justify-between items-center text-xs">
+                            <span class="text-slate-400">رابطه با نرخ بهره (<span class="math-ltr">r</span>):</span>
+                            <span class="px-2.5 py-1 rounded bg-rose-500/20 text-rose-500 font-bold math-ltr">L<sub>s</sub> = L<sub>2</sub>(r) &nbsp; (-)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bond Price & Interest Rate Inverse Relationship Mini-Calculator -->
+                <div class="p-5 rounded-2xl bg-indigo-500/10 border border-indigo-500/20">
+                    <h4 class="font-bold text-sm md:text-base text-indigo-600 dark:text-indigo-400 mb-2">
+                        ⚖️ چرا تقاضای سفته‌بازی پول با نرخ بهره رابطه معکوس دارد؟ (رابطه قیمت اوراق قرضه و نرخ بهره)
+                    </h4>
+                    <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                        ارزش بازاری یک برگ اوراق قرضه دائمی که سالانه مبلغ ثابتی به اندازه <span class="math-ltr">C</span> (کوپن سود) می‌پردازد، برابر است با <span class="math-ltr">P<sub>b</sub> = C / r</span>.
+                        وقتی نرخ بهره بازار (<span class="math-ltr">r</span>) بالا باشد، قیمت اوراق قرضه (<span class="math-ltr">P<sub>b</sub></span>) ارزان است و مردم انتظار دارند در آینده نرخ بهره کاهش و قیمت اوراق افزایش یابد؛ بنابراین پول نقد خود را به اوراق قرضه تبدیل می‌کنند (<span class="math-ltr">L<sub>s</sub></span> کم می‌شود).
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800">
+                        <div>
+                            <div class="flex justify-between text-xs font-bold mb-1">
+                                <span>نرخ بهره بازار (<span class="math-ltr">r</span>):</span>
+                                <span id="bondRVal" class="text-indigo-500">10%</span>
+                            </div>
+                            <input id="bondRSlider" type="range" min="2" max="25" value="10" class="w-full" oninput="updateBondCalc()">
+                        </div>
+                        <div class="text-center border-y md:border-y-0 md:border-x border-slate-200 dark:border-slate-800 py-2 md:py-0">
+                            <div class="text-xs text-slate-400">قیمت بازاری ورقه قرضه (با کوپن ۱۰۰ تومانی)</div>
+                            <div id="bondPriceVal" class="text-xl font-black text-emerald-500 math-ltr mt-1">P_b = 100 / 0.10 = 1000</div>
+                        </div>
+                        <div id="bondSpecText" class="text-xs font-medium text-slate-600 dark:text-slate-300">
+                            در نرخ بهره ۱۰٪، قیمت اوراق متعادل است.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==========================================
+                 SECTION 6: GRAPHICAL DERIVATION OF MONEY DEMAND
+            =========================================== -->
+            <section id="sec6" class="section-block card-glass rounded-2xl p-6 md:p-8 shadow-xl">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 font-bold text-sm">بخش ششم</span>
+                    <h2 class="text-xl md:text-2xl font-extrabold">تقاضای پول از روش نموداری (استخراج منحنی <span class="math-ltr">M<sup>d</sup></span> کل)</h2>
+                </div>
+                <p class="text-slate-600 dark:text-slate-300 text-sm md:text-base leading-relaxed mb-6">
+                    تقاضای کل موجودی‌های واقعی پول برابر است با مجموع <strong>تقاضای معاملاتی و احتیاطی (<span class="math-ltr">L<sub>1</sub>(Y)</span>)</strong> و <strong>تقاضای سفته‌بازی (<span class="math-ltr">L<sub>2</sub>(r)</span>)</strong>:
+                    <span class="math-ltr px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-500 mx-1">(M/P)<sup>d</sup> = L(Y, r) = L<sub>1</sub>(Y) + L<sub>2</sub>(r)</span>.
+                    با تغییر دادن درآمد (<span class="math-ltr">Y</span>) و نرخ بهره (<span class="math-ltr">r</span>)، تفاوت بین <strong>حرکت روی منحنی</strong> و <strong>انتقال منحنی</strong> و همچنین <strong>دام نقدینگی (Liquidity Trap)</strong> را مشاهده کنید:
+                </p>
+
+                <!-- Controls for Chart 1 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 p-4 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                    <div>
+                        <div class="flex justify-between text-xs md:text-sm font-bold mb-1">
+                            <span>تغییر درآمد ملی (<span class="math-ltr">Y</span>) ← انتقال منحنی <span class="math-ltr">M<sup>d</sup></span>:</span>
+                            <span id="mdYVal" class="text-emerald-500 font-extrabold">Y = 1000</span>
+                        </div>
+                        <input id="mdYSlider" type="range" min="600" max="1600" step="100" value="1000" class="w-full" oninput="drawMoneyDemandDerivation()">
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-xs md:text-sm font-bold mb-1">
+                            <span>تغییر نرخ بهره (<span class="math-ltr">r</span>) ← حرکت روی منحنی <span class="math-ltr">M<sup>d</sup></span>:</span>
+                            <span id="mdRVal" class="text-rose-500 font-extrabold">r = 8%</span>
+                        </div>
+                        <input id="mdRSlider" type="range" min="2" max="16" step="1" value="8" class="w-full" oninput="drawMoneyDemandDerivation()">
+                    </div>
+                </div>
+
+                <!-- 3-Panel Interactive SVG Chart -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+                    <!-- Panel A: L1(Y) -->
+                    <div class="p-3 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
+                        <div class="text-xs font-bold text-center text-emerald-500 mb-1">الف) تقاضای معاملاتی و احتیاطی <span class="math-ltr">L<sub>1</sub>(Y)</span></div>
+                        <svg id="svgL1" viewBox="0 0 280 240" class="w-full h-auto"></svg>
+                    </div>
+                    <!-- Panel B: L2(r) -->
+                    <div class="p-3 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
+                        <div class="text-xs font-bold text-center text-rose-500 mb-1">ب) تقاضای سفته‌بازی <span class="math-ltr">L<sub>2</sub>(r)</span> و دام نقدینگی</div>
+                        <svg id="svgL2" viewBox="0 0 280 240" class="w-full h-auto"></svg>
+                    </div>
+                    <!-- Panel C: Total Md -->
+                    <div class="p-3 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
+                        <div class="text-xs font-bold text-center text-indigo-500 mb-1">ج) تقاضای کل پول <span class="math-ltr">M<sup>d</sup> = L<sub>1</sub>(Y) + L<sub>2</sub>(r)</span></div>
+                        <svg id="svgMdTotal" viewBox="0 0 280 240" class="w-full h-auto"></svg>
+                    </div>
+                </div>
+
+                <div id="mdDerivationNote" class="mt-4 p-3.5 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-xs md:text-sm font-medium">
+                    <!-- Updated dynamically -->
+                </div>
+            </section>
+
+            <!-- ==========================================
+                 SECTION 7: MONEY SUPPLY & MULTIPLIER
+            =========================================== -->
+            <section id="sec7" class="section-block card-glass rounded-2xl p-6 md:p-8 shadow-xl">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 font-bold text-sm">بخش هفتم</span>
+                    <h2 class="text-xl md:text-2xl font-extrabold">عرضه پول، پایه پولی و ضریب فزاینده نقدینگی</h2>
+                </div>
+                <p class="text-slate-600 dark:text-slate-300 text-sm md:text-base leading-relaxed mb-6">
+                    در اقتصاد کلان فرض می‌شود حجم اسمی عرضه پول (<span class="math-ltr">M<sup>s</sup></span>) یک متغیر <strong>برون‌زا (Exogenous)</strong> است که توسط <strong>بانک مرکزی</strong> کنترل می‌شود و مستقل از نرخ بهره (<span class="math-ltr">r</span>) است؛ بنابراین منحنی عرضه واقعی پول (<span class="math-ltr">M<sup>s</sup> / P</span>) در دستگاه مختصات <span class="math-ltr">(M/P, r)</span> یک <strong>خط عمودی</strong> است.
+                </p>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                    <!-- Multiplier Calculator -->
+                    <div class="lg:col-span-7 p-5 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-4">
+                        <h3 class="font-bold text-base text-indigo-600 dark:text-indigo-400">🏦 شبیه‌ساز خلق پول و ضریب فزاینده پولی (<span class="math-ltr">m</span>)</h3>
+                        <div class="p-3 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-center">
+                            <div class="text-sm md:text-base font-black math-ltr text-indigo-500">M<sup>s</sup> = m × B &nbsp;&nbsp; , &nbsp;&nbsp; m = (1 + cu) / (cu + rr)</div>
+                            <div class="text-[11px] text-slate-400 mt-1">
+                                <span class="math-ltr">B</span>: پایه پولی (پول پرقدرت) | <span class="math-ltr">cu = C/D</span>: نسبت اسکناس به سپرده | <span class="math-ltr">rr = R/D</span>: نرخ ذخیره قانونی و اضافی بانک‌ها
+                            </div>
+                        </div>
+
+                        <div class="space-y-3 text-xs">
+                            <div>
+                                <div class="flex justify-between font-bold mb-1">
+                                    <span>پایه پولی بانک مرکزی (<span class="math-ltr">B</span>):</span>
+                                    <span id="msBVal" class="text-indigo-500">200 واحد</span>
+                                </div>
+                                <input id="msBSlider" type="range" min="100" max="500" step="20" value="200" class="w-full" oninput="updateMoneySupplySim()">
+                            </div>
+                            <div>
+                                <div class="flex justify-between font-bold mb-1">
+                                    <span>نرخ ذخیره قانونی بانک مرکزی (<span class="math-ltr">rr</span>):</span>
+                                    <span id="msRrVal" class="text-rose-500">15% (0.15)</span>
+                                </div>
+                                <input id="msRrSlider" type="range" min="5" max="50" step="1" value="15" class="w-full" oninput="updateMoneySupplySim()">
+                            </div>
+                            <div>
+                                <div class="flex justify-between font-bold mb-1">
+                                    <span>نسبت نگهداری اسکناس توسط مردم (<span class="math-ltr">cu</span>):</span>
+                                    <span id="msCuVal" class="text-amber-500">25% (0.25)</span>
+                                </div>
+                                <input id="msCuSlider" type="range" min="5" max="60" step="5" value="25" class="w-full" oninput="updateMoneySupplySim()">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-3 pt-2">
+                            <div class="p-3 rounded-xl bg-indigo-500/10 border border-indigo-500/30 text-center">
+                                <div class="text-xs text-slate-400">ضریب فزاینده پولی (<span class="math-ltr">m</span>)</div>
+                                <div id="msMultiplierResult" class="text-xl font-black text-indigo-500 math-ltr mt-1">3.13</div>
+                            </div>
+                            <div class="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-center">
+                                <div class="text-xs text-slate-400">حجم کل عرضه پول (<span class="math-ltr">M<sup>s</sup></span>)</div>
+                                <div id="msTotalResult" class="text-xl font-black text-emerald-500 math-ltr mt-1">625</div>
+                            </div>
+                        </div>
+
+                        <!-- Central Bank Tools -->
+                        <div class="text-xs text-slate-600 dark:text-slate-300 pt-2 border-t border-slate-200 dark:border-slate-800">
+                            <strong>ابزارهای سیاست پولی بانک مرکزی:</strong> ۱. عملیات بازار باز (خرید و فروش اوراق قرضه) ۲. تغییر نرخ ذخیره قانونی (<span class="math-ltr">rr</span>) ۳. تغییر نرخ تنزیل مجدد.
+                        </div>
+                    </div>
+
+                    <!-- Vertical Money Supply SVG -->
+                    <div class="lg:col-span-5 p-4 rounded-2xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-center">
+                        <div class="text-xs font-bold text-emerald-500 mb-2">منحنی عرضه واقعی پول (<span class="math-ltr">M<sup>s</sup> / P</span>) - بی‌کشش نسبت به نرخ بهره</div>
+                        <svg id="svgMsVertical" viewBox="0 0 300 240" class="w-full h-auto"></svg>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==========================================
+                 SECTION 8: MONEY MARKET EQUILIBRIUM & DISEQUILIBRIUM
+            =========================================== -->
+            <section id="sec8" class="section-block card-glass rounded-2xl p-6 md:p-8 shadow-xl">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 font-bold text-sm">بخش هشتم</span>
+                    <h2 class="text-xl md:text-2xl font-extrabold">تعادل در بازار پول و مکانیسم تعدیل عدم تعادل</h2>
+                </div>
+                <p class="text-slate-600 dark:text-slate-300 text-sm md:text-base leading-relaxed mb-6">
+                    تعادل در بازار پول در نقطه‌ای برقرار می‌شود که <strong>عرضه واقعی پول با تقاضای واقعی پول برابر شود (<span class="math-ltr">M<sup>s</sup> / P = L(Y, r)</span>)</strong>.
+                    اما اگر نرخ بهره جاری بازار بالاتر یا پایین‌تر از نرخ بهره تعادلی (<span class="math-ltr">r* = 8%</span>) باشد چه اتفاقی می‌افتد؟ اسلایدر زیر را جابجا کنید تا <strong>مکانیسم علمی بازگشت به تعادل از طریق بازار اوراق قرضه</strong> را ببینید:
+                </p>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                    <div class="lg:col-span-5 space-y-4">
+                        <div class="p-5 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                            <div class="flex justify-between items-center text-sm font-bold mb-2">
+                                <span>نرخ بهره آزمایشی بازار (<span class="math-ltr">r</span>):</span>
+                                <span id="eqTestRVal" class="text-lg font-black text-indigo-500 math-ltr">r = 8% (تعادل)</span>
+                            </div>
+                            <input id="eqTestRSlider" type="range" min="3" max="13" step="1" value="8" class="w-full" oninput="drawEquilibriumChart()">
+                            <div class="flex justify-between text-xs text-slate-400 mt-2">
+                                <button onclick="setTestR(12)" class="px-2 py-1 rounded bg-amber-500/20 text-amber-500 hover:bg-amber-500/30 font-semibold">تست نرخ بهره بالا (r = 12%)</button>
+                                <button onclick="setTestR(8)" class="px-2 py-1 rounded bg-emerald-500/20 text-emerald-500 hover:bg-emerald-500/30 font-semibold">تعادل (r* = 8%)</button>
+                                <button onclick="setTestR(4)" class="px-2 py-1 rounded bg-rose-500/20 text-rose-500 hover:bg-rose-500/30 font-semibold">تست نرخ بهره پایین (r = 4%)</button>
+                            </div>
+                        </div>
+
+                        <!-- Mechanism Explanation Box -->
+                        <div id="eqMechanismBox" class="p-5 rounded-2xl border text-xs md:text-sm leading-relaxed space-y-2">
+                            <!-- Filled by JS -->
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-7 p-4 rounded-2xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
+                        <div class="text-xs font-bold text-center text-slate-500 mb-2">نمودار تعادل بازار پول و شکاف مازاد عرضه / مازاد تقاضا</div>
+                        <svg id="svgEquilibrium" viewBox="0 0 420 290" class="w-full h-auto"></svg>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==========================================
+                 SECTION 9: CHANGES IN MONEY MARKET EQUILIBRIUM
+            =========================================== -->
+            <section id="sec9" class="section-block card-glass rounded-2xl p-6 md:p-8 shadow-xl">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 font-bold text-sm">بخش نهم</span>
+                    <h2 class="text-xl md:text-2xl font-extrabold">تغییر در تعادل بازار پول (شبیه‌ساز سیاست‌های پولی و شوک‌ها)</h2>
+                </div>
+                <p class="text-slate-600 dark:text-slate-300 text-sm md:text-base leading-relaxed mb-6">
+                    هر عاملی که منحنی عرضه واقعی پول (<span class="math-ltr">M<sup>s</sup>/P</span>) یا منحنی تقاضای واقعی پول (<span class="math-ltr">L(Y, r)</span>) را جابجا کند، باعث تغییر نرخ بهره تعادلی از <span class="math-ltr">E<sub>1</sub></span> به <span class="math-ltr">E<sub>2</sub></span> می‌شود. روی سناریوهای استاندارد امتحانی زیر کلیک کنید یا اسلایدرها را تغییر دهید:
+                </p>
+
+                <!-- Preset Scenario Buttons -->
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <button onclick="applyScenario('exp_ms')" class="px-3.5 py-2 rounded-xl text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white transition shadow">
+                        ۱. سیاست پولی انبساطی (↑ M<sup>s</sup>)
+                    </button>
+                    <button onclick="applyScenario('con_ms')" class="px-3.5 py-2 rounded-xl text-xs font-bold bg-rose-600 hover:bg-rose-500 text-white transition shadow">
+                        ۲. سیاست پولی انقباضی (↓ M<sup>s</sup>)
+                    </button>
+                    <button onclick="applyScenario('inc_y')" class="px-3.5 py-2 rounded-xl text-xs font-bold bg-indigo-600 hover:bg-indigo-500 text-white transition shadow">
+                        ۳. افزایش درآمد ملی / رونق اقتصادی (↑ Y)
+                    </button>
+                    <button onclick="applyScenario('inc_p')" class="px-3.5 py-2 rounded-xl text-xs font-bold bg-amber-600 hover:bg-amber-500 text-white transition shadow">
+                        ۴. افزایش سطح عمومی قیمت‌ها / تورم (↑ P)
+                    </button>
+                    <button onclick="applyScenario('reset')" class="px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-600 hover:bg-slate-500 text-white transition">
+                        بازگشت به حالت پایه (E<sub>1</sub>)
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+                    <!-- Sliders & Transmission Chain -->
+                    <div class="lg:col-span-5 space-y-4">
+                        <div class="p-4 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-3 text-xs">
+                            <div>
+                                <div class="flex justify-between font-bold mb-1">
+                                    <span>عرضه اسمی پول (<span class="math-ltr">M<sup>s</sup></span>):</span>
+                                    <span id="shiftMsVal" class="text-emerald-500 font-bold">500 (پایه: 500)</span>
+                                </div>
+                                <input id="shiftMsSlider" type="range" min="300" max="700" step="50" value="500" class="w-full" oninput="drawShiftChart('custom')">
+                            </div>
+                            <div>
+                                <div class="flex justify-between font-bold mb-1">
+                                    <span>سطح عمومی قیمت‌ها (<span class="math-ltr">P</span>):</span>
+                                    <span id="shiftPVal" class="text-amber-500 font-bold">1.0 (پایه: 1.0)</span>
+                                </div>
+                                <input id="shiftPSlider" type="range" min="0.7" max="1.5" step="0.1" value="1.0" class="w-full" oninput="drawShiftChart('custom')">
+                            </div>
+                            <div>
+                                <div class="flex justify-between font-bold mb-1">
+                                    <span>درآمد ملی واقعی (<span class="math-ltr">Y</span>):</span>
+                                    <span id="shiftYVal" class="text-indigo-500 font-bold">1000 (پایه: 1000)</span>
+                                </div>
+                                <input id="shiftYSlider" type="range" min="700" max="1300" step="100" value="1000" class="w-full" oninput="drawShiftChart('custom')">
+                            </div>
+                        </div>
+
+                        <!-- Transmission Mechanism Box -->
+                        <div class="p-4 rounded-2xl bg-indigo-500/10 border border-indigo-500/30">
+                            <div class="text-xs font-extrabold text-indigo-600 dark:text-indigo-400 mb-2">🔗 زنجیره علمی تعدیل بازار پول (برای ارائه کلاسی):</div>
+                            <div id="shiftTransmissionText" class="text-xs md:text-sm leading-relaxed space-y-2 text-slate-700 dark:text-slate-200">
+                                <!-- Filled dynamically -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Shift Chart -->
+                    <div class="lg:col-span-7 p-4 rounded-2xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
+                        <div class="flex flex-wrap justify-between items-center text-xs mb-2 px-2">
+                            <span class="font-bold text-slate-500">مقایسه تعادل اولیه (<span class="math-ltr">E<sub>1</sub></span> خط‌چین) و تعادل جدید (<span class="math-ltr">E<sub>2</sub></span> ممتد)</span>
+                            <span id="shiftEqBadge" class="px-2.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-500 font-bold math-ltr">r₁ = 8.0% → r₂ = 8.0%</span>
+                        </div>
+                        <svg id="svgShift" viewBox="0 0 440 300" class="w-full h-auto"></svg>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="text-center py-6 text-xs text-slate-500 border-t border-slate-200 dark:border-slate-800">
+                طراحی شده برای ارائه دانشگاهی درس <strong>اقتصاد کلان - فصل چهارم: نظریه پول</strong> | مبتنی بر منابع استاندارد (منکیو، بلانچارد، رحمانی و تفضلی)
+            </footer>
+
+        </main>
+    </div>
+
+    <!-- JavaScript Logic for All Simulations & SVG Charts -->
+    <script>
+        // ==========================================
+        // THEME & NAVIGATION
+        // ==========================================
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+        }
+
+        const sections = document.querySelectorAll('.section-block');
+        const navItems = document.querySelectorAll('.nav-item');
+
+        function selectSection(idx) {
+            highlightNav(idx);
+            // Close mobile sidebar if open
+            document.getElementById('sidebar').classList.add('translate-x-full');
+        }
+
+        function highlightNav(idx) {
+            navItems.forEach((item, i) => {
+                if (i === idx) item.classList.add('active-nav');
+                else item.classList.remove('active-nav');
+            });
+        }
+
+        // Update active nav item automatically on scroll
+        window.addEventListener('scroll', () => {
+            let currentIdx = 0;
+            sections.forEach((sec, idx) => {
+                const rect = sec.getBoundingClientRect();
+                if (rect.top <= 180) {
+                    currentIdx = idx;
+                }
+            });
+            highlightNav(currentIdx);
+        });
+
+        document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+            document.getElementById('sidebar').classList.toggle('translate-x-full');
+        });
+
+        // ==========================================
+        // SECTION 1: BARTER VS MONETARY NETWORK SIM
+        // ==========================================
+        function updateBarterSim() {
+            const N = parseInt(document.getElementById('barterNSlider').value);
+            const barterPrices = (N * (N - 1)) / 2;
+            const moneyPrices = N;
+            const savingPct = (((barterPrices - moneyPrices) / barterPrices) * 100).toFixed(1);
+
+            document.getElementById('barterNVal').textContent = `${N} کالا`;
+            document.getElementById('barterPricesCount').textContent = barterPrices.toLocaleString('en-US');
+            document.getElementById('moneyPricesCount').textContent = moneyPrices.toLocaleString('en-US');
+            document.getElementById('barterSavingText').textContent =
+                `در اقتصاد ${N} کالایی، استفاده از پول تعداد قیمت‌های لازم را از ${barterPrices.toLocaleString('en-US')} به ${moneyPrices} کاهش می‌دهد (${savingPct}٪ صرفه‌جویی اطلاعاتی)!`;
+
+            // Draw Network SVGs (cap visual nodes at 14 for clarity)
+            const visN = Math.min(N, 14);
+            const cx = 110, cy = 110, r = 80;
+            const points = [];
+            for (let i = 0; i < visN; i++) {
+                const angle = (2 * Math.PI * i) / visN - Math.PI / 2;
+                points.push({
+                    x: cx + r * Math.cos(angle),
+                    y: cy + r * Math.sin(angle)
+                });
+            }
+
+            // Barter SVG
+            let barterHtml = '';
+            for (let i = 0; i < visN; i++) {
+                for (let j = i + 1; j < visN; j++) {
+                    barterHtml += `<line x1="${points[i].x}" y1="${points[i].y}" x2="${points[j].x}" y2="${points[j].y}" stroke="#f43f5e" stroke-width="1" stroke-opacity="0.45"/>`;
+                }
+            }
+            points.forEach(p => {
+                barterHtml += `<circle cx="${p.x}" cy="${p.y}" r="6" fill="#e11d48"/>`;
+            });
+            document.getElementById('barterNetworkSvg').innerHTML = barterHtml;
+
+            // Money SVG
+            let moneyHtml = '';
+            points.forEach(p => {
+                moneyHtml += `<line x1="${cx}" y1="${cy}" x2="${p.x}" y2="${p.y}" stroke="#10b981" stroke-width="1.8" stroke-opacity="0.75"/>`;
+                moneyHtml += `<circle cx="${p.x}" cy="${p.y}" r="6" fill="#059669"/>`;
+            });
+            moneyHtml += `<circle cx="${cx}" cy="${cy}" r="18" fill="#4f46e5"/>`;
+            moneyHtml += `<text x="${cx}" y="${cy + 4}" text-anchor="middle" fill="#fff" font-size="10" font-weight="bold">پول</text>`;
+            document.getElementById('moneyNetworkSvg').innerHTML = moneyHtml;
+        }
+
+        // ==========================================
+        // SECTION 2: EVOLUTION OF MONEY DATA
+        // ==========================================
+        const evolutionData = [
+            {
+                title: '۱. پول کالایی (Commodity Money)',
+                era: 'دوران باستان و جوامع اولیه کشاورزی',
+                desc: 'کالاهایی که علاوه بر نقش واسطه مبادله، خودشان نیز **ارزش ذاتی و مصرفی (Intrinsic Value)** داشتند؛ مانند دام، گندم، نمک، صدف و پوست حیوانات.',
+                pros: 'رفع مشکل همزمانی مضاعف نیازها نسبت به تهاتر.',
+                cons: 'عدم همگنی (تفاوت کیفیت دام‌ها)، فسادپذیری، دشواری حمل‌ونقل و تقسیم‌ناپذیری.'
+            },
+            {
+                title: '۲. پول فلزی و مسکوکات (Metallic Money)',
+                era: 'تمدن‌های باستانی (لیدی، هخامنشیان، روم)',
+                desc: 'استفاده از فلزات گرانبها (طلا و نقره) و ضرب سکه با وزن و عیار مشخص توسط حکومت‌ها. ارزش اسمی سکه برابر با ارزش ذاتی فلز به کار رفته در آن بود.',
+                pros: 'دوام بالا، عدم فسادپذیری، قابلیت تقسیم و ارزش بالا در حجم کم.',
+                cons: 'سنگینی در معاملات کلان، خطر سرقت و پدیده «تراشیدن سکه‌ها» یا کاهش عیار (قانون گرشام: پول بد، پول خوب را از جریان خارج می‌کند).'
+            },
+            {
+                title: '۳. پول کاغذی با پشتوانه / رسید زرگران (Representative Money)',
+                era: 'قرون وسطی تا قرن نوزدهم (صرافان و زرگران)',
+                desc: 'مردم طلا و مسکوکات خود را نزد صرافان و زرگران به امانت می‌گذاشتند و «رسید کاغذی» دریافت می‌کردند. این رسیدها به دلیل اعتماد عمومی دست به دست می‌شدند و ۱۰۰٪ پشتوانه فلز گرانبها داشتند.',
+                pros: 'امنیت بالا، سهولت حمل‌ونقل و کاهش استهلاک فلزات گرانبها.',
+                cons: 'وابستگی کامل حجم پول به میزان ذخایر فیزیکی طلا و نقره.'
+            },
+            {
+                title: '۴. پول کاغذی اعتباری / فیات (Fiat Money)',
+                era: 'قرن بیستم (به‌ویژه پس از فروپاشی نظام برتون وودز در ۱۹۷۱)',
+                desc: 'اسکناس‌هایی که **ارزش ذاتی ندارند** و قابل تبدیل به طلا هم نیستند. اعتبار آن‌ها ناشی از **حکم قانون (Legal Tender)** و اعتماد عمومی به بانک مرکزی و توان تولیدی اقتصاد است.',
+                pros: 'انعطاف‌پذیری بانک مرکزی در تنظیم حجم پول متناسب با رشد تولید.',
+                cons: 'خطر چاپ بی‌رویه پول توسط دولت‌ها و ایجاد تورم‌های شدید در صورت نبود انضباط پولی.'
+            },
+            {
+                title: '۵. پول بانکی یا ثبتی (Checkable / Bank Money)',
+                era: 'نظام بانکداری مدرن ذخیره جزئی',
+                desc: 'سپرده‌های دیداری (جاری) مردم نزد بانک‌های تجاری که بدون جابجایی فیزیکی اسکناس و تنها با صدور چک یا دستور پرداخت منتقل می‌شوند. بخش عمده حجم پول (M1) در اقتصادهای امروزی پول بانکی است.',
+                pros: 'ایمنی بسیار بالا، قابلیت خلق پول از طریق ضریب فزاینده بانکی و ثبت دقیق تراکنش‌ها.',
+                cons: 'نیاز به زیرساخت بانکی و نظارت دقیق بانک مرکزی بر خلق اعتبار.'
+            },
+            {
+                title: '۶. پول الکترونیک، دیجیتال بانک مرکزی (CBDC) و رمزارزها',
+                era: 'عصر دیجیتال و فین‌تک (قرن بیست و یکم)',
+                desc: 'شامل کارت‌های پرداخت الکترونیک، انتقال‌های آنی بانکی، پول‌های دیجیتال بانک مرکزی (CBDC) و دارایی‌های رمزنگاری‌شده بر بستر بلاکچین.',
+                pros: 'سرعت گردش بسیار بالا، حذف هزینه چاپ اسکناس و کاهش هزینه‌های مبادله به نزدیک صفر.',
+                cons: 'چالش‌های امنیت سایبری و نوسانات شدید قیمتی در رمزارزهای بدون پشتوانه.'
+            }
+        ];
+
+        function selectEvolution(idx) {
+            const btns = document.querySelectorAll('.evo-btn');
+            btns.forEach((b, i) => {
+                if (i === idx) {
+                    b.className = 'evo-btn p-3 rounded-xl border text-right transition bg-indigo-600 text-white border-indigo-500 shadow';
+                } else {
+                    b.className = 'evo-btn p-3 rounded-xl border border-slate-300 dark:border-slate-700 text-right transition hover:border-indigo-500';
+                }
+            });
+
+            const item = evolutionData[idx];
+            document.getElementById('evolutionDetail').innerHTML = `
+                <div class="md:col-span-2 space-y-2">
+                    <div class="text-xs font-bold text-indigo-500">${item.era}</div>
+                    <h3 class="text-lg font-extrabold">${item.title}</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">${item.desc}</p>
+                </div>
+                <div class="space-y-2 text-xs">
+                    <div class="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20">
+                        <strong class="text-emerald-500 block mb-1">✅ مزیت کلیدی:</strong>
+                        ${item.pros}
+                    </div>
+                    <div class="p-3 rounded-xl bg-rose-500/10 border border-rose-500/20">
+                        <strong class="text-rose-500 block mb-1">⚠️ محدودیت و چالش:</strong>
+                        ${item.cons}
+                    </div>
+                </div>
+            `;
+        }
+
+        // ==========================================
+        // SECTION 3: INFLATION EROSION SIMULATOR
+        // ==========================================
+        function updateInflationSim() {
+            const inf = parseFloat(document.getElementById('infRateSlider').value) / 100;
+            document.getElementById('infRateVal').textContent = `${(inf * 100).toFixed(0)}%`;
+
+            const container = document.getElementById('infBarsContainer');
+            let html = '';
+            for (let yr = 0; yr <= 5; yr++) {
+                const realVal = 100 / Math.pow(1 + inf, yr);
+                const heightPct = Math.max(8, realVal);
+                html += `
+                    <div class="flex flex-col items-center justify-end h-full">
+                        <span class="text-[10px] font-bold mb-1 math-ltr">${realVal.toFixed(1)}</span>
+                        <div class="w-full rounded-t-md bg-gradient-to-t from-amber-600 to-amber-400 transition-all duration-300" style="height: ${heightPct}%"></div>
+                        <span class="text-[10px] text-slate-400 mt-1">سال ${yr}</span>
+                    </div>
+                `;
+                if (yr === 5) {
+                    document.getElementById('realPurchasingPower').textContent = `${realVal.toFixed(1)} میلیون تومان`;
+                }
+            }
+            container.innerHTML = html;
+        }
+
+        // ==========================================
+        // SECTION 4: FISHER QUANTITY EQUATION SIM
+        // ==========================================
+        function updateFisherSim() {
+            const M = parseFloat(document.getElementById('fisherMSlider').value);
+            const V = parseFloat(document.getElementById('fisherVSlider').value);
+            const Y = parseFloat(document.getElementById('fisherYSlider').value);
+
+            const nominalGDP = M * V;
+            const P = nominalGDP / Y;
+
+            document.getElementById('fisherMVal').textContent = `${M} واحد`;
+            document.getElementById('fisherVVal').textContent = `${V} بار در سال`;
+            document.getElementById('fisherYVal').textContent = `${Y} واحد`;
+            document.getElementById('fisherNominalGDP').textContent = nominalGDP.toLocaleString('en-US');
+            document.getElementById('fisherPResult').textContent = `P = ${P.toFixed(2)}`;
+        }
+
+        // ==========================================
+        // SECTION 5: BOND PRICE & SPECULATIVE DEMAND
+        // ==========================================
+        function updateBondCalc() {
+            const r = parseFloat(document.getElementById('bondRSlider').value);
+            const C = 100;
+            const Pb = C / (r / 100);
+
+            document.getElementById('bondRVal').textContent = `${r}%`;
+            document.getElementById('bondPriceVal').textContent = `P_b = 100 / ${(r/100).toFixed(2)} = ${Pb.toFixed(0)}`;
+
+            const specEl = document.getElementById('bondSpecText');
+            if (r >= 15) {
+                specEl.innerHTML = `<span class="text-emerald-500 font-bold">نرخ بهره بالاست و اوراق قرضه ارزان شده است!</span> مردم انتظار کاهش نرخ بهره و گران شدن اوراق در آینده را دارند؛ پس پول نقد نگه نمی‌دارند و اوراق می‌خرند (<span class="math-ltr">L<sub>s</sub></span> بسیار کم).`;
+            } else if (r <= 4) {
+                specEl.innerHTML = `<span class="text-rose-500 font-bold">نرخ بهره بسیار پایین است (نزدیک دام نقدینگی)!</span> قیمت اوراق در اوج است و خطر سقوط قیمت اوراق (زیان سرمایه‌ای) بالاست؛ پس همه پول نقد نگه می‌دارند (<span class="math-ltr">L<sub>s</sub></span> بسیار زیاد).`;
+            } else {
+                specEl.innerHTML = `با افزایش نرخ بهره، قیمت بازاری اوراق قرضه کاهش می‌یابد و هزینه فرصت نگهداری پول نقد بالا می‌رود.`;
+            }
+        }
+
+        // ==========================================
+        // SECTION 6: GRAPHICAL DERIVATION OF Md
+        // ==========================================
+        function drawMoneyDemandDerivation() {
+            const Y = parseFloat(document.getElementById('mdYSlider').value);
+            const r = parseFloat(document.getElementById('mdRSlider').value);
+
+            document.getElementById('mdYVal').textContent = `Y = ${Y}`;
+            document.getElementById('mdRVal').textContent = `r = ${r}%`;
+
+            // Economic Model:
+            // L1(Y) = 0.25 * Y  (ranges from 150 to 400)
+            // L2(r) = 320 / (r - 1)  (when r=2 -> 320, when r=16 -> 21)
+            const L1 = 0.25 * Y;
+            const L2 = 300 / Math.max(1.2, (r - 0.8));
+            const Md = L1 + L2;
+
+            // Helper to map coordinates: X in [0, 800] -> [40, 260], Y(r) in [0, 18] -> [200, 25]
+            const mapR = (rate) => 200 - (rate / 18) * 170;
+            const mapL1X = (val) => 40 + (val / 500) * 210;
+            const mapL2X = (val) => 40 + (val / 400) * 210;
+            const mapMdX = (val) => 40 + (val / 800) * 210;
+
+            const curY = mapR(r);
+
+            // 1. Draw L1 SVG
+            const xL1 = mapL1X(L1);
+            const xL1Base = mapL1X(250); // Base Y=1000 -> L1=250
+            document.getElementById('svgL1').innerHTML = `
+                <!-- Axes -->
+                <line x1="40" y1="20" x2="40" y2="200" stroke="#64748b" stroke-width="1.5"/>
+                <line x1="40" y1="200" x2="265" y2="200" stroke="#64748b" stroke-width="1.5"/>
+                <text x="25" y="30" fill="#94a3b8" font-size="11" font-weight="bold">r</text>
+                <text x="235" y="220" fill="#94a3b8" font-size="10" font-weight="bold">L₁(Y)</text>
+                <!-- Base L1 dashed -->
+                <line x1="${xL1Base}" y1="30" x2="${xL1Base}" y2="200" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4"/>
+                <!-- Active L1 Vertical Line -->
+                <line x1="${xL1}" y1="25" x2="${xL1}" y2="200" stroke="#10b981" stroke-width="3"/>
+                <line x1="40" y1="${curY}" x2="${xL1}" y2="${curY}" stroke="#f43f5e" stroke-width="1.2" stroke-dasharray="3"/>
+                <circle cx="${xL1}" cy="${curY}" r="5" fill="#10b981"/>
+                <text x="${xL1}" y="215" text-anchor="middle" fill="#10b981" font-size="10" font-weight="bold">${L1.toFixed(0)}</text>
+            `;
+
+            // 2. Draw L2 SVG (Speculative + Liquidity Trap at r=2%)
+            let pathL2 = '';
+            for (let rate = 16; rate >= 2; rate -= 0.5) {
+                const l2Val = 300 / Math.max(1.2, (rate - 0.8));
+                const px = mapL2X(l2Val);
+                const py = mapR(rate);
+                pathL2 += (rate === 16 ? `M ${px} ${py}` : ` L ${px} ${py}`);
+            }
+            // Liquidity trap flat horizontal region at r=2%
+            pathL2 += ` L 255 ${mapR(2)}`;
+            const xL2 = mapL2X(L2);
+
+            document.getElementById('svgL2').innerHTML = `
+                <line x1="40" y1="20" x2="40" y2="200" stroke="#64748b" stroke-width="1.5"/>
+                <line x1="40" y1="200" x2="265" y2="200" stroke="#64748b" stroke-width="1.5"/>
+                <text x="25" y="30" fill="#94a3b8" font-size="11" font-weight="bold">r</text>
+                <text x="235" y="220" fill="#94a3b8" font-size="10" font-weight="bold">L₂(r)</text>
+                <!-- Liquidity Trap Label -->
+                <rect x="145" y="${mapR(2) - 22}" width="95" height="16" rx="4" fill="#f43f5e" fill-opacity="0.15"/>
+                <text x="192" y="${mapR(2) - 11}" text-anchor="middle" fill="#f43f5e" font-size="9" font-weight="bold">دام نقدینگی (r_min)</text>
+                <!-- L2 Curve -->
+                <path d="${pathL2}" fill="none" stroke="#f43f5e" stroke-width="3"/>
+                <line x1="40" y1="${curY}" x2="${xL2}" y2="${curY}" stroke="#f43f5e" stroke-width="1.2" stroke-dasharray="3"/>
+                <line x1="${xL2}" y1="${curY}" x2="${xL2}" y2="200" stroke="#f43f5e" stroke-width="1.2" stroke-dasharray="3"/>
+                <circle cx="${xL2}" cy="${curY}" r="5" fill="#f43f5e"/>
+                <text x="${xL2}" y="215" text-anchor="middle" fill="#f43f5e" font-size="10" font-weight="bold">${L2.toFixed(0)}</text>
+            `;
+
+            // 3. Draw Total Md = L1 + L2
+            let pathMdBase = '', pathMdActive = '';
+            for (let rate = 16; rate >= 2; rate -= 0.5) {
+                const l2Val = 300 / Math.max(1.2, (rate - 0.8));
+                const py = mapR(rate);
+                const pxBase = mapMdX(250 + l2Val);
+                const pxAct = mapMdX(L1 + l2Val);
+                pathMdBase += (rate === 16 ? `M ${pxBase} ${py}` : ` L ${pxBase} ${py}`);
+                pathMdActive += (rate === 16 ? `M ${pxAct} ${py}` : ` L ${pxAct} ${py}`);
+            }
+            pathMdActive += ` L 260 ${mapR(2)}`;
+            const xMd = mapMdX(Md);
+
+            document.getElementById('svgMdTotal').innerHTML = `
+                <line x1="40" y1="20" x2="40" y2="200" stroke="#64748b" stroke-width="1.5"/>
+                <line x1="40" y1="200" x2="265" y2="200" stroke="#64748b" stroke-width="1.5"/>
+                <text x="25" y="30" fill="#94a3b8" font-size="11" font-weight="bold">r</text>
+                <text x="225" y="220" fill="#94a3b8" font-size="10" font-weight="bold">Mᵈ = L(Y,r)</text>
+                <!-- Base Md Curve -->
+                <path d="${pathMdBase}" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4"/>
+                <!-- Active Md Curve -->
+                <path d="${pathMdActive}" fill="none" stroke="#6366f1" stroke-width="3"/>
+                <line x1="40" y1="${curY}" x2="${xMd}" y2="${curY}" stroke="#6366f1" stroke-width="1.2" stroke-dasharray="3"/>
+                <line x1="${xMd}" y1="${curY}" x2="${xMd}" y2="200" stroke="#6366f1" stroke-width="1.2" stroke-dasharray="3"/>
+                <circle cx="${xMd}" cy="${curY}" r="5.5" fill="#6366f1"/>
+                <text x="24" y="${curY + 3}" fill="#f43f5e" font-size="10" font-weight="bold">${r}%</text>
+                <text x="${xMd}" y="215" text-anchor="middle" fill="#6366f1" font-size="10" font-weight="bold">${Md.toFixed(0)}</text>
+            `;
+
+            const noteEl = document.getElementById('mdDerivationNote');
+            if (r === 2) {
+                noteEl.innerHTML = `⚠️ <strong>وضعیت دام نقدینگی (Liquidity Trap):</strong> در نرخ بهره بسیار پایین (${r}٪)، منحنی تقاضای پول کاملاً افقی (بی‌نهایت باکشش) می‌شود؛ یعنی هر چقدر بانک مرکزی پول تزریق کند، مردم تمام آن را به صورت نقد نگه می‌دارند و نرخ بهره دیگر پایین‌تر نمی‌آید!`;
+            } else {
+                noteEl.innerHTML = `📌 در درآمد <span class="math-ltr">Y = ${Y}</span> و نرخ بهره <span class="math-ltr">r = ${r}%</span>: تقاضای معاملاتی و احتیاطی برابر <span class="math-ltr">L₁ = ${L1.toFixed(0)}</span> و تقاضای سفته‌بازی برابر <span class="math-ltr">L₂ = ${L2.toFixed(0)}</span> است که مجموعاً تقاضای کل پول <span class="math-ltr">Mᵈ = ${Md.toFixed(0)}</span> را می‌سازد.`;
+            }
+        }
+
+        // ==========================================
+        // SECTION 7: MONEY SUPPLY & MULTIPLIER SIM
+        // ==========================================
+        function updateMoneySupplySim() {
+            const B = parseFloat(document.getElementById('msBSlider').value);
+            const rr = parseFloat(document.getElementById('msRrSlider').value) / 100;
+            const cu = parseFloat(document.getElementById('msCuSlider').value) / 100;
+
+            const m = (1 + cu) / (cu + rr);
+            const Ms = m * B;
+
+            document.getElementById('msBVal').textContent = `${B} واحد`;
+            document.getElementById('msRrVal').textContent = `${(rr * 100).toFixed(0)}% (${rr.toFixed(2)})`;
+            document.getElementById('msCuVal').textContent = `${(cu * 100).toFixed(0)}% (${cu.toFixed(2)})`;
+            document.getElementById('msMultiplierResult').textContent = m.toFixed(2);
+            document.getElementById('msTotalResult').textContent = Ms.toFixed(0);
+
+            // Draw Vertical Ms SVG
+            const xMs = 45 + Math.min(220, (Ms / 1500) * 210);
+            document.getElementById('svgMsVertical').innerHTML = `
+                <line x1="45" y1="20" x2="45" y2="205" stroke="#64748b" stroke-width="1.5"/>
+                <line x1="45" y1="205" x2="275" y2="205" stroke="#64748b" stroke-width="1.5"/>
+                <text x="25" y="30" fill="#94a3b8" font-size="11" font-weight="bold">r</text>
+                <text x="245" y="225" fill="#94a3b8" font-size="11" font-weight="bold">Mˢ / P</text>
+                <!-- Base Ms=625 reference -->
+                <line x1="${45 + (625/1500)*210}" y1="30" x2="${45 + (625/1500)*210}" y2="205" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4"/>
+                <!-- Current Ms Vertical Line -->
+                <line x1="${xMs}" y1="25" x2="${xMs}" y2="205" stroke="#10b981" stroke-width="3.5"/>
+                <text x="${xMs}" y="20" text-anchor="middle" fill="#10b981" font-size="11" font-weight="bold">Mˢ/P = ${Ms.toFixed(0)}</text>
+            `;
+        }
+
+        // ==========================================
+        // SECTION 8: EQUILIBRIUM & DISEQUILIBRIUM
+        // ==========================================
+        function setTestR(val) {
+            document.getElementById('eqTestRSlider').value = val;
+            drawEquilibriumChart();
+        }
+
+        function drawEquilibriumChart() {
+            const rTest = parseFloat(document.getElementById('eqTestRSlider').value);
+            const rStar = 8;
+            // Demand formula: Md(r) = 500 - 25 * (r - 8) => at r=8, Md=500=Ms
+            const Ms = 500;
+            const MdTest = 500 - 25 * (rTest - 8);
+
+            const mapX = (m) => 55 + ((m - 200) / 600) * 330;
+            const mapY = (r) => 245 - (r / 15) * 210;
+
+            const xMs = mapX(Ms);
+            const yStar = mapY(rStar);
+            const yTest = mapY(rTest);
+            const xMdTest = mapX(MdTest);
+
+            // Generate Md path
+            let mdPath = '';
+            for (let r = 14; r >= 2; r -= 1) {
+                const m = 500 - 25 * (r - 8);
+                mdPath += (r === 14 ? `M ${mapX(m)} ${mapY(r)}` : ` L ${mapX(m)} ${mapY(r)}`);
+            }
+
+            let gapSvg = '';
+            const box = document.getElementById('eqMechanismBox');
+            const label = document.getElementById('eqTestRVal');
+
+            if (rTest > rStar) {
+                label.textContent = `r₁ = ${rTest}% (بالاتر از تعادل)`;
+                label.className = 'text-lg font-black text-amber-500 math-ltr';
+                gapSvg = `
+                    <line x1="${xMdTest}" y1="${yTest}" x2="${xMs}" y2="${yTest}" stroke="#f59e0b" stroke-width="3"/>
+                    <circle cx="${xMdTest}" cy="${yTest}" r="5" fill="#f59e0b"/>
+                    <circle cx="${xMs}" cy="${yTest}" r="5" fill="#f59e0b"/>
+                    <text x="${(xMdTest + xMs)/2}" y="${yTest - 8}" text-anchor="middle" fill="#f59e0b" font-size="11" font-weight="bold">مازاد عرضه پول (ESM)</text>
+                `;
+                box.className = 'p-5 rounded-2xl border border-amber-500/40 bg-amber-500/10 text-xs md:text-sm leading-relaxed space-y-2';
+                box.innerHTML = `
+                    <div class="font-extrabold text-amber-500">⚠️ وضعیت: مازاد عرضه پول (<span class="math-ltr">M<sup>s</sup>/P > M<sup>d</sup></span>)</div>
+                    <p>در نرخ بهره بالای <span class="math-ltr">${rTest}%</span>، هزینه فرصت نگهداری پول بالاست؛ بنابراین مردم فقط <strong>${MdTest} واحد</strong> پول می‌خواهند اما در دستشان <strong>${Ms} واحد</strong> پول است.</p>
+                    <div class="p-2.5 rounded-lg bg-white/60 dark:bg-slate-900/80 font-semibold text-xs">
+                        🔄 مکانیسم بازگشت به تعادل:<br>
+                        مازاد عرضه پول ← مردم با پول اضافی <strong>اوراق قرضه می‌خرند</strong> ← تقاضا و <strong>قیمت اوراق قرضه بالا می‌رود (<span class="math-ltr">↑P<sub>b</sub></span>)</strong> ← طبق رابطه معکوس، <strong>نرخ بهره کاهش می‌یابد (<span class="math-ltr">↓r</span>)</strong> تا به <span class="math-ltr">r* = 8%</span> برسد.
+                    </div>
+                `;
+            } else if (rTest < rStar) {
+                label.textContent = `r₂ = ${rTest}% (پایین‌تر از تعادل)`;
+                label.className = 'text-lg font-black text-rose-500 math-ltr';
+                gapSvg = `
+                    <line x1="${xMs}" y1="${yTest}" x2="${xMdTest}" y2="${yTest}" stroke="#f43f5e" stroke-width="3"/>
+                    <circle cx="${xMdTest}" cy="${yTest}" r="5" fill="#f43f5e"/>
+                    <circle cx="${xMs}" cy="${yTest}" r="5" fill="#f43f5e"/>
+                    <text x="${(xMdTest + xMs)/2}" y="${yTest + 16}" text-anchor="middle" fill="#f43f5e" font-size="11" font-weight="bold">مازاد تقاضای پول (EDM)</text>
+                `;
+                box.className = 'p-5 rounded-2xl border border-rose-500/40 bg-rose-500/10 text-xs md:text-sm leading-relaxed space-y-2';
+                box.innerHTML = `
+                    <div class="font-extrabold text-rose-500">⚠️ وضعیت: مازاد تقاضای پول (<span class="math-ltr">M<sup>d</sup> > M<sup>s</sup>/P</span>)</div>
+                    <p>در نرخ بهره پایین <span class="math-ltr">${rTest}%</span>، مردم تمایل دارند <strong>${MdTest} واحد</strong> پول نقد نگه دارند، اما عرضه واقعی پول فقط <strong>${Ms} واحد</strong> است (کمبود نقدینگی).</p>
+                    <div class="p-2.5 rounded-lg bg-white/60 dark:bg-slate-900/80 font-semibold text-xs">
+                        🔄 مکانیسم بازگشت به تعادل:<br>
+                        مازاد تقاضای پول ← مردم برای به دست آوردن پول نقد، <strong>اوراق قرضه خود را می‌فروشند</strong> ← عرضه اوراق زیاد شده و <strong>قیمت اوراق قرضه سقوط می‌کند (<span class="math-ltr">↓P<sub>b</sub></span>)</strong> ← <strong>نرخ بهره افزایش می‌یابد (<span class="math-ltr">↑r</span>)</strong> تا به تعادل <span class="math-ltr">r* = 8%</span> بازگردد.
+                    </div>
+                `;
+            } else {
+                label.textContent = `r* = 8% (نقطه تعادل بازار پول)`;
+                label.className = 'text-lg font-black text-emerald-500 math-ltr';
+                box.className = 'p-5 rounded-2xl border border-emerald-500/40 bg-emerald-500/10 text-xs md:text-sm leading-relaxed space-y-2';
+                box.innerHTML = `
+                    <div class="font-extrabold text-emerald-500">✅ وضعیت: تعادل کامل در بازار پول و بازار اوراق قرضه (<span class="math-ltr">E*</span>)</div>
+                    <p>در نرخ بهره <span class="math-ltr">r* = 8%</span>، تقاضای کل موجودی‌های واقعی پول دقیقاً برابر با عرضه واقعی پول (۵۰۰ واحد) است و هیچ انگیزه‌ای برای تغییر ترکیب سبد دارایی (پول و اوراق قرضه) وجود ندارد.</p>
+                `;
+            }
+
+            document.getElementById('svgEquilibrium').innerHTML = `
+                <!-- Axes -->
+                <line x1="55" y1="20" x2="55" y2="245" stroke="#64748b" stroke-width="1.8"/>
+                <line x1="55" y1="245" x2="395" y2="245" stroke="#64748b" stroke-width="1.8"/>
+                <text x="30" y="30" fill="#94a3b8" font-size="12" font-weight="bold">r (%)</text>
+                <text x="360" y="270" fill="#94a3b8" font-size="12" font-weight="bold">M / P</text>
+
+                <!-- Ms Vertical Line -->
+                <line x1="${xMs}" y1="25" x2="${xMs}" y2="245" stroke="#10b981" stroke-width="3"/>
+                <text x="${xMs}" y="18" text-anchor="middle" fill="#10b981" font-size="11" font-weight="bold">Mˢ / P = 500</text>
+
+                <!-- Md Curve -->
+                <path d="${mdPath}" fill="none" stroke="#6366f1" stroke-width="3"/>
+                <text x="${mapX(360)}" y="${mapY(13.5)}" fill="#6366f1" font-size="11" font-weight="bold">Mᵈ = L(Y, r)</text>
+
+                <!-- Equilibrium Dashed Lines -->
+                <line x1="55" y1="${yStar}" x2="${xMs}" y2="${yStar}" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="4"/>
+                <circle cx="${xMs}" cy="${yStar}" r="6" fill="#10b981"/>
+                <text x="${xMs + 16}" y="${yStar + 4}" fill="#10b981" font-size="12" font-weight="bold">E* (r*=8%)</text>
+                <text x="38" y="${yStar + 4}" fill="#10b981" font-size="11" font-weight="bold">8%</text>
+
+                <!-- Test Rate Horizontal Line & Gap -->
+                <line x1="55" y1="${yTest}" x2="${Math.max(xMs, xMdTest)}" y2="${yTest}" stroke="#94a3b8" stroke-width="1" stroke-dasharray="2"/>
+                <text x="38" y="${yTest + 4}" fill="#f59e0b" font-size="11" font-weight="bold">${rTest}%</text>
+                ${gapSvg}
+            `;
+        }
+
+        // ==========================================
+        // SECTION 9: SHIFTS IN EQUILIBRIUM SIMULATOR
+        // ==========================================
+        function applyScenario(type) {
+            const msSlider = document.getElementById('shiftMsSlider');
+            const pSlider = document.getElementById('shiftPSlider');
+            const ySlider = document.getElementById('shiftYSlider');
+
+            if (type === 'exp_ms') {
+                msSlider.value = 650; pSlider.value = 1.0; ySlider.value = 1000;
+            } else if (type === 'con_ms') {
+                msSlider.value = 350; pSlider.value = 1.0; ySlider.value = 1000;
+            } else if (type === 'inc_y') {
+                msSlider.value = 500; pSlider.value = 1.0; ySlider.value = 1300;
+            } else if (type === 'inc_p') {
+                msSlider.value = 500; pSlider.value = 1.4; ySlider.value = 1000;
+            } else {
+                msSlider.value = 500; pSlider.value = 1.0; ySlider.value = 1000;
+            }
+            drawShiftChart(type);
+        }
+
+        function drawShiftChart(scenarioType) {
+            const Ms = parseFloat(document.getElementById('shiftMsSlider').value);
+            const P = parseFloat(document.getElementById('shiftPSlider').value);
+            const Y = parseFloat(document.getElementById('shiftYSlider').value);
+
+            document.getElementById('shiftMsVal').textContent = `${Ms} (پایه: 500)`;
+            document.getElementById('shiftPVal').textContent = `${P.toFixed(1)} (پایه: 1.0)`;
+            document.getElementById('shiftYVal').textContent = `${Y} (پایه: 1000)`;
+
+            // Base Equilibrium: Ms0/P0 = 500, Y0 = 1000, r1 = 8%
+            // Demand equation: Md = 0.5*Y - 25*(r - 8)
+            // Equilibrium condition: RealMs = 0.5*Y - 25*(r2 - 8) => 25*(r2 - 8) = 0.5*Y - RealMs
+            const realMs0 = 500;
+            const realMs2 = Ms / P;
+            const r1 = 8.0;
+            const r2 = Math.max(1.5, Math.min(14.5, 8 + (0.5 * Y - realMs2) / 25));
+
+            const mapX = (m) => 55 + ((m - 200) / 600) * 340;
+            const mapY = (r) => 255 - (r / 15) * 215;
+
+            const xMs1 = mapX(realMs0);
+            const xMs2 = mapX(realMs2);
+            const yR1 = mapY(r1);
+            const yR2 = mapY(r2);
+
+            let md1Path = '', md2Path = '';
+            for (let r = 14; r >= 2; r -= 1) {
+                const m1 = 500 - 25 * (r - 8);
+                const m2 = 0.5 * Y - 25 * (r - 8);
+                md1Path += (r === 14 ? `M ${mapX(m1)} ${mapY(r)}` : ` L ${mapX(m1)} ${mapY(r)}`);
+                md2Path += (r === 14 ? `M ${mapX(m2)} ${mapY(r)}` : ` L ${mapX(m2)} ${mapY(r)}`);
+            }
+
+            document.getElementById('shiftEqBadge').textContent = `r₁ = ${r1.toFixed(1)}% → r₂ = ${r2.toFixed(1)}%`;
+
+            document.getElementById('svgShift').innerHTML = `
+                <!-- Axes -->
+                <line x1="55" y1="20" x2="55" y2="255" stroke="#64748b" stroke-width="1.8"/>
+                <line x1="55" y1="255" x2="415" y2="255" stroke="#64748b" stroke-width="1.8"/>
+                <text x="30" y="30" fill="#94a3b8" font-size="12" font-weight="bold">r (%)</text>
+                <text x="375" y="280" fill="#94a3b8" font-size="12" font-weight="bold">M / P</text>
+
+                <!-- Original Ms1 (Dashed) -->
+                <line x1="${xMs1}" y1="30" x2="${xMs1}" y2="255" stroke="#94a3b8" stroke-width="2" stroke-dasharray="5"/>
+                <text x="${xMs1}" y="24" text-anchor="middle" fill="#94a3b8" font-size="10">Mˢ₁/P₁</text>
+
+                <!-- Original Md1 (Dashed) -->
+                <path d="${md1Path}" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="5"/>
+
+                <!-- New Ms2 (Solid) -->
+                <line x1="${xMs2}" y1="30" x2="${xMs2}" y2="255" stroke="#10b981" stroke-width="3.2"/>
+                <text x="${xMs2}" y="15" text-anchor="middle" fill="#10b981" font-size="11" font-weight="bold">Mˢ₂/P₂ = ${realMs2.toFixed(0)}</text>
+
+                <!-- New Md2 (Solid) -->
+                <path d="${md2Path}" fill="none" stroke="#6366f1" stroke-width="3.2"/>
+                <text x="${mapX(0.5 * Y - 25 * (13 - 8)) + 10}" y="${mapY(13)}" fill="#6366f1" font-size="11" font-weight="bold">L(Y₂=${Y}, r)</text>
+
+                <!-- E1 Point -->
+                <line x1="55" y1="${yR1}" x2="${xMs1}" y2="${yR1}" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="3"/>
+                <circle cx="${xMs1}" cy="${yR1}" r="5" fill="#94a3b8"/>
+                <text x="${xMs1 - 18}" y="${yR1 - 8}" fill="#94a3b8" font-size="11" font-weight="bold">E₁</text>
+                <text x="35" y="${yR1 + 4}" fill="#94a3b8" font-size="10">8.0%</text>
+
+                <!-- E2 Point -->
+                <line x1="55" y1="${yR2}" x2="${xMs2}" y2="${yR2}" stroke="#f43f5e" stroke-width="1.5" stroke-dasharray="4"/>
+                <circle cx="${xMs2}" cy="${yR2}" r="6.5" fill="#f43f5e"/>
+                <text x="${xMs2 + 12}" y="${yR2 - 8}" fill="#f43f5e" font-size="12" font-weight="bold">E₂ (r₂=${r2.toFixed(1)}%)</text>
+                <text x="32" y="${yR2 + 4}" fill="#f43f5e" font-size="11" font-weight="bold">${r2.toFixed(1)}%</text>
+            `;
+
+            // Update Transmission Mechanism Text
+            const transBox = document.getElementById('shiftTransmissionText');
+            if (scenarioType === 'exp_ms') {
+                transBox.innerHTML = `
+                    <div class="font-bold text-emerald-500">۱. سیاست پولی انبساطی (افزایش حجم اسمی پول <span class="math-ltr">↑M<sup>s</sup></span>):</div>
+                    <p>بانک مرکزی با خرید اوراق قرضه در بازار باز یا کاهش نرخ ذخیره قانونی، حجم پول را افزایش می‌دهد:</p>
+                    <div class="p-2.5 rounded-lg bg-white dark:bg-slate-900 font-bold text-xs math-ltr text-center">
+                        ↑Mˢ ⇒ ↑(Mˢ/P) (انتقال عرضه به راست) ⇒ مازاد عرضه پول در r₁ ⇒ خرید اوراق قرضه ⇒ ↑P_b ⇒ ↓r (کاهش نرخ بهره به ${r2.toFixed(1)}%)
+                    </div>
+                `;
+            } else if (scenarioType === 'con_ms') {
+                transBox.innerHTML = `
+                    <div class="font-bold text-rose-500">۲. سیاست پولی انقباضی (کاهش حجم اسمی پول <span class="math-ltr">↓M<sup>s</sup></span>):</div>
+                    <p>بانک مرکزی برای مهار تورم، اوراق قرضه می‌فروشد و پایه پولی را منقبض می‌کند:</p>
+                    <div class="p-2.5 rounded-lg bg-white dark:bg-slate-900 font-bold text-xs math-ltr text-center">
+                        ↓Mˢ ⇒ ↓(Mˢ/P) (انتقال عرضه به چپ) ⇒ مازاد تقاضای پول در r₁ ⇒ فروش اوراق قرضه ⇒ ↓P_b ⇒ ↑r (افزایش نرخ بهره به ${r2.toFixed(1)}%)
+                    </div>
+                `;
+            } else if (scenarioType === 'inc_y') {
+                transBox.innerHTML = `
+                    <div class="font-bold text-indigo-500">۳. افزایش درآمد ملی واقعی (<span class="math-ltr">↑Y</span>):</div>
+                    <p>با رونق گرفتن اقتصاد و افزایش درآمد ملی، تقاضای معاملاتی و احتیاطی پول افزایش یافته و کل منحنی تقاضای پول (<span class="math-ltr">M<sup>d</sup></span>) به سمت راست منتقل می‌شود:</p>
+                    <div class="p-2.5 rounded-lg bg-white dark:bg-slate-900 font-bold text-xs math-ltr text-center">
+                        ↑Y ⇒ ↑L₁(Y) (انتقال Mᵈ به راست) ⇒ مازاد تقاضای پول در r₁ ⇒ فروش اوراق قرضه ⇒ ↓P_b ⇒ ↑r (افزایش نرخ بهره به ${r2.toFixed(1)}%)
+                    </div>
+                `;
+            } else if (scenarioType === 'inc_p') {
+                transBox.innerHTML = `
+                    <div class="font-bold text-amber-500">۴. افزایش سطح عمومی قیمت‌ها (<span class="math-ltr">↑P</span> - شوک تورمی):</div>
+                    <p>با ثابت بودن حجم اسمی پول (<span class="math-ltr">M<sup>s</sup></span>)، افزایش سطح قیمت‌ها باعث کاهش موجودی واقعی پول (<span class="math-ltr">↓(M<sup>s</sup>/P)</span>) شده و منحنی عرضه واقعی پول به چپ منتقل می‌شود:</p>
+                    <div class="p-2.5 rounded-lg bg-white dark:bg-slate-900 font-bold text-xs math-ltr text-center">
+                        ↑P ⇒ ↓(Mˢ/P) (انتقال عرضه به چپ) ⇒ مازاد تقاضای پول ⇒ فروش اوراق قرضه ⇒ ↓P_b ⇒ ↑r (افزایش نرخ بهره به ${r2.toFixed(1)}%)
+                    </div>
+                `;
+            } else {
+                transBox.innerHTML = `
+                    <div>عرضه واقعی پول برابر <span class="math-ltr">M<sup>s</sup>/P = ${realMs2.toFixed(0)}</span> و درآمد ملی برابر <span class="math-ltr">Y = ${Y}</span> است.</div>
+                    <div>نرخ بهره تعادلی جدید در نقطه تقاطع <span class="math-ltr">E₂</span> برابر <strong class="text-indigo-500 math-ltr">${r2.toFixed(1)}%</strong> تعیین می‌شود.</div>
+                `;
+            }
+        }
+
+        // Initialize all charts and simulators on window load
+        window.onload = function() {
+            updateBarterSim();
+            selectEvolution(0);
+            updateInflationSim();
+            updateFisherSim();
+            updateBondCalc();
+            drawMoneyDemandDerivation();
+            updateMoneySupplySim();
+            drawEquilibriumChart();
+            drawShiftChart('reset');
+        };
+    </script>
+</body>
+</html>
